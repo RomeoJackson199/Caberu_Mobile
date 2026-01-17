@@ -1,73 +1,112 @@
-# Welcome to your Lovable project
+# Caberu Mobile - First Smile AI
 
-## Project info
+A React Native healthcare app for dental appointment booking and AI-powered consultations.
 
-**URL**: https://lovable.dev/projects/952bbe84-3a4d-4f46-b2b7-7a7945d9eaf0
+## Tech Stack
 
-## How can I edit this code?
+- **Framework**: Expo (managed workflow)
+- **Navigation**: expo-router (file-based routing)
+- **Styling**: NativeWind (Tailwind CSS for React Native)
+- **Backend**: Supabase (auth, database, edge functions)
+- **State Management**: React Query + React Context
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- AI-powered dental chat assistant
+- Multi-step appointment booking flow
+- Push notifications for appointment reminders
+- Biometric authentication support
+- Multi-language support (English, French, Dutch)
+- Dentist directory with profiles
+- Appointment history and management
+- User profile and settings
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/952bbe84-3a4d-4f46-b2b7-7a7945d9eaf0) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
+- Expo Go app (for mobile testing)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Follow these steps:
+2. Start the development server:
+   ```bash
+   npm start
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. Scan the QR code with Expo Go (iOS/Android) or press:
+   - `i` for iOS simulator
+   - `a` for Android emulator
+   - `w` for web browser
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Project Structure
 
-# Step 3: Install the necessary dependencies.
-npm i
+```
+/app                      # expo-router pages
+  /_layout.tsx           # Root layout with providers
+  /index.tsx             # Entry redirect
+  /onboarding.tsx        # Onboarding screens
+  /(auth)/               # Auth group
+    /login.tsx
+    /register.tsx
+  /(main)/               # Main app group
+    /_layout.tsx         # Tab navigation
+    /chat.tsx            # AI chat screen
+    /appointments.tsx    # Appointments list
+    /dentists.tsx        # Dentist directory
+    /book.tsx            # Booking flow
+    /settings.tsx        # User settings
+    /appointments/[id].tsx  # Appointment detail
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+/components              # Reusable components
+  /ui/                   # UI component library
+
+/lib                     # Utilities
+  /supabase.ts          # Supabase client
+  /database.types.ts    # Database types
+  /utils.ts             # Helper functions
+  /notifications.ts     # Push notification utils
+  /biometric.ts         # Biometric auth utils
+
+/hooks                   # Custom React hooks
+  /useAuth.tsx          # Authentication context
+  /useLanguage.tsx      # i18n context
+  /useToast.tsx         # Toast notifications
+
+/assets                  # Static assets
 ```
 
-**Edit a file directly in GitHub**
+## Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a `.env` file:
 
-**Use GitHub Codespaces**
+```env
+EXPO_PUBLIC_SUPABASE_URL=your_supabase_url
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Building for Production
 
-## What technologies are used for this project?
+```bash
+# Build for Android
+npm run build:android
 
-This project is built with:
+# Build for iOS
+npm run build:ios
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Original Web Version
 
-## How can I deploy this project?
+The original web version was built with Vite + React + shadcn/ui. The source files are preserved in the `/src` directory for reference.
 
-Simply open [Lovable](https://lovable.dev/projects/952bbe84-3a4d-4f46-b2b7-7a7945d9eaf0) and click on Share -> Publish.
+## License
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Private - All rights reserved
